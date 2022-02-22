@@ -1,5 +1,7 @@
 # Slurm Cheat Sheet
 
+*Adapted from Santiago's Slurm Cheatsheet: https://github.com/bryant1410/slurm-cheatsheet*
+
 ## Show the GPU partition queue for an account
 ```bash
 squeue \
