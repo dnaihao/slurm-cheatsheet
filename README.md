@@ -22,6 +22,11 @@ sreport \
 | sed -r 's/(.*billing\s+)([0-9]+)\b(.*)/echo "\1 \\$$(echo scale=2\\; \2\/100000 \| bc)\3"/ge'
 ```
 
+### Easier way of look into account billing
+```
+my_account_billing -v test
+```
+
 ## Account GPU-hours utilization
 
 ```bash
