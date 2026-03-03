@@ -9,6 +9,18 @@ squeue \
   --partition gpu \
   -o "%.18i %.9P %.40j %.8u %.8a %.8T %.6D %.4C %.5D %.6m %.13b %.10M %.10l %.28R"
 ```
+## Checking Job Status on the HPC (Slurm)
+- **See your running/pending jobs in a clean table**
+`squeue -u $USER`
+- **Show custom columns** (*proper formatted output*)
+`squeue -u $USER -o "%.18i %.10T %.9P %.20j %.8u %.6D %.10M %.10l %.8R"`
+*This will show: JobID, State, Partition, JobName, User, Nodes, TimeUsed, TimeLimit, Reason/Node.*
+- **Full details for one job (*collect job id while submitting job to cluster*)**
+`scontrol show job <JOBID>`
+- **See finished jobs** (*history*)
+`sacct -u $USER --format=JobID,JobName%30,Partition,State,Elapsed,Timelimit,AllocCPUS,ReqMem,NodeList`
+- **See QOS and NODELIST(REASON) clearly** (*If job is pending → this is the reason (like `Resources`, `Priority`, `QOSMaxJobsPerUserLimit`, etc.*)
+`squeue -u $USER -o "%.12i %.9P %.20j %.8T %.10M %.10l %.12q %.20R"`
 
 ## Account billing
 
